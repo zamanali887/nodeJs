@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
-export default function TodoTable() {
+export default function ShowTodos() {
 
     const [state, setState] = useState({ title: "", location: "", description: "" })
     const [getTodo, setGetTodo] = useState([])
@@ -63,7 +64,19 @@ export default function TodoTable() {
     return (
         <>
             <div className="container">
-                <div className="row">
+            <div className="row mt-2">
+                    <div className="col-12 col-md-2">
+                        <button className='btn btn-success w-100'>
+                            <Link to="/" className='text-decoration-none text-white' >Add Todos</Link>
+                        </button>
+                    </div>
+                </div>
+                <div className="row my-2">
+                    <div className="col text-center">
+                        <h1>Todo Table</h1>
+                    </div>
+                </div>
+                <div className="row my-2">
                     <div className="col">
                         <table className="table">
                             <thead>

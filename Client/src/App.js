@@ -1,15 +1,12 @@
 import 'bootstrap/dist/js/bootstrap.bundle';
 import './App.scss';
-import AddTodo from './pages/AddTodo';
-import TodoTable from './pages/TodoTable';
+
+import  Routes  from './pages/Frontend/Routes';
 
 function App() {
   return (
-    <div>
-     <AddTodo/>
-     <TodoTable/>
-    </div>
-  );
+    <Routes/>
+    );
 }
 
 export default App;

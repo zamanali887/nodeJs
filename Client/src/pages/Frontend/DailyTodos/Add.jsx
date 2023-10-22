@@ -1,9 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+
+
 
 const initialState = { title: "", location: "", description: "" }
 
-export default function AddTodo() {
+export default function Add() {
     const [state, setState] = useState(initialState);
 
 
@@ -26,6 +30,7 @@ export default function AddTodo() {
 
         axios.post(`${URL}/addTodo`, data)
             .then((res) => {
+                
                 console.log('res', res)
             })
             .catch((err) => {
@@ -37,6 +42,13 @@ export default function AddTodo() {
     return (
         <>
             <div className="container">
+                <div className="row mt-2">
+                    <div className="col-12 col-md-2">
+                        <button className='btn btn-success w-100'>
+                            <Link to="/todos" className='text-decoration-none text-white' >Show Todos</Link>
+                        </button>
+                    </div>
+                </div>
                 <div className="row py-5">
                     <div className="col">
                         <div className="row text-center">
@@ -69,3 +81,4 @@ export default function AddTodo() {
         </>
     )
 }
+
