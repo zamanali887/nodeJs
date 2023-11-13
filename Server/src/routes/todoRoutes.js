@@ -10,12 +10,12 @@ router.use(express.json());
 
 router.get("/getTodo", async (req, res) => {
     const todos = await TodoModel.find()
-    // const todos = await TodoModel.findById("652cb83277b65e7f5a73e305").exec();
     res.send(todos)
 })
 
 
-// Sending or Adding new Todo in Database
+// Adding new Todo in Database
+
 router.post("/addTodo", async (req, res) => {
     let todo = req.body;
     const newTodo = new TodoModel(todo);

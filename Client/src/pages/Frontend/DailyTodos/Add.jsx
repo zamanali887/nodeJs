@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -30,7 +31,7 @@ export default function Add() {
 
         axios.post(`${URL}/addTodo`, data)
             .then((res) => {
-                
+                message.success("Todo Added Successfully")
                 console.log('res', res)
             })
             .catch((err) => {
@@ -44,9 +45,11 @@ export default function Add() {
             <div className="container">
                 <div className="row mt-2">
                     <div className="col-12 col-md-2">
-                        <button className='btn btn-success w-100'>
-                            <Link to="/todos" className='text-decoration-none text-white' >Show Todos</Link>
-                        </button>
+                        <Link to="/todos" className='text-decoration-none text-white' >
+                            <button className='btn btn-success w-100'>
+                                Show Todos
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="row py-5">

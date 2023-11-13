@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
@@ -35,6 +36,7 @@ export default function ShowTodos() {
 
             .then((res) => {
                 console.log('res', res)
+                message.success("Todo Updated Successfully")
                 const updateTodo = getTodo.map(oldTodo => {
                     if (oldTodo._id === state._id)
                         return state
@@ -55,6 +57,7 @@ export default function ShowTodos() {
             .then((res) => {
                 let todoAfterDelete = getTodo.filter(doc => doc._id !== todo._id)
                 setGetTodo(todoAfterDelete)
+                message.success("Todo Deleted Successfully")
                 console.log('res', res)
             })
             .catch((err) => {
@@ -64,11 +67,13 @@ export default function ShowTodos() {
     return (
         <>
             <div className="container">
-            <div className="row mt-2">
+                <div className="row mt-2">
                     <div className="col-12 col-md-2">
-                        <button className='btn btn-success w-100'>
-                            <Link to="/" className='text-decoration-none text-white' >Add Todos</Link>
-                        </button>
+                        <Link to="/" className='text-decoration-none text-white' >
+                            <button className='btn btn-success w-100'>
+                                Add Todos
+                            </button>
+                        </Link>
                     </div>
                 </div>
                 <div className="row my-2">
